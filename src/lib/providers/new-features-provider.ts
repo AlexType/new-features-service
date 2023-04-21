@@ -1,18 +1,18 @@
 export abstract class NewFeaturesProvider {
   public abstract get newFeatures(): Promise<number>;
-  private _subscriptions: (() => any)[] = [];
+  private _subscriptions: (() => void)[] = [];
 
   public abstract markNewFeatureAsUsed(feature: number): Promise<void>;
   protected abstract stopListenPushes(): void;
-  protected abstract startListenPushes(refreshFn: () => any): void;
+  protected abstract startListenPushes(refreshFn: () => void): void;
 
-  public subscribeOnChangeState(func: () => any): void {
+  public subscribeOnChangeState(func: () => void): void {
     if (this._subscriptions.find(f => f === func)) return;
     this._subscriptions.push(func);
     if (this._subscriptions.length === 1) this.startListenPushes(this.publish);
   }
 
-  public unsubscribeFromChangeState(func: () => any): void {
+  public unsubscribeFromChangeState(func: () => void): void {
     const index = this._subscriptions.indexOf(func);
     if (index !== -1) {
       this._subscriptions.splice(index, 1);

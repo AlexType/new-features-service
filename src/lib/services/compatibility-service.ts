@@ -2,7 +2,7 @@ export class CompatibilityService {
   private _groups: number[];
 
   constructor(groups: number[]) {
-    this._groups = groups
+    this._groups = groups;
   }
 
   public compatible(feature: number, visibleFeatures: number): number {

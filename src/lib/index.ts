@@ -1,5 +1,5 @@
-import { NewFeaturesProvider } from "./providers/new-features-provider";
-import { CompatibilityService } from "./services/compatibility-service";
+import { NewFeaturesProvider } from './providers/new-features-provider';
+import { CompatibilityService } from './services/compatibility-service';
 
 export class NewFeaturesService {
   public get shownNewFeatures(): number {
@@ -9,7 +9,7 @@ export class NewFeaturesService {
   private _shownNewFeatures = 0;
   private _promise$: Promise<number> | undefined;
   private _compatibilityService: CompatibilityService;
-  private readonly _subscriptions: (() => any)[] = [];
+  private readonly _subscriptions: (() => void)[] = [];
   private get _newFeatures$(): Promise<number> {
     if (!this._promise$) this._promise$ = this._provider.newFeatures;
     return this._promise$;
@@ -45,13 +45,13 @@ export class NewFeaturesService {
     this._shownNewFeatures &= ~feature;
   }
 
-  public subscribeOnChangeState(func: () => any): void {
+  public subscribeOnChangeState(func: () => void): void {
     if (this._subscriptions.find(f => f === func)) return;
     this._subscriptions.push(func);
     if (this._subscriptions.length === 1) this._provider.subscribeOnChangeState(this.refreshNewFeatures);
   }
 
-  public unsubscribeFromChangeState(func: () => any): void {
+  public unsubscribeFromChangeState(func: () => void): void {
     const index = this._subscriptions.indexOf(func);
     if (index !== -1) return;
     this._subscriptions.splice(index, 1);

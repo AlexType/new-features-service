@@ -10,19 +10,20 @@ enum Features {
 
 class Provider extends NewFeaturesProvider {
   public get newFeatures(): Promise<number> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve(5);
-      }, 300)
+      }, 300);
     });
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public markNewFeatureAsUsed(feature: number): Promise<void> {
-    return new Promise(() => { console.log('MARk') });
+    return new Promise(() => { console.log('MARk'); });
   }
   protected stopListenPushes(): void {
     console.log('STOP');
   }
-  protected startListenPushes(refreshFn: () => any): void {
+  protected startListenPushes(refreshFn: () => void): void {
     refreshFn();
     console.log('START');
   }
@@ -34,5 +35,5 @@ class Provider extends NewFeaturesProvider {
 it('Runs without crashing', () => {
   const provider = new Provider();
   const newFeaturesService = new NewFeaturesService(provider, [Features.BotsPage | Features.CommentPin | Features.EventsMultiPin]);
-  expect(newFeaturesService).toBeTruthy()
+  expect(newFeaturesService).toBeTruthy();
 });

@@ -2,7 +2,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: './src/demo/index.ts',
   output: { filename: 'new-features-service.js' },
@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     open: true,
     hot: true,
-    host: "localhost",
+    host: 'localhost',
     port: 9000
   },
   module: {
