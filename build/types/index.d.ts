@@ -1,4 +1,4 @@
-import { NewFeaturesProvider } from "./providers/new-features-provider";
+import { NewFeaturesProvider } from './providers/new-features-provider';
 export declare class NewFeaturesService {
     private readonly _provider;
     get shownNewFeatures(): number;
@@ -13,7 +13,7 @@ export declare class NewFeaturesService {
     isNewFeature(feature: number): Promise<boolean>;
     markNewFeatureAsUsed(feature: number): Promise<boolean>;
     hide(feature: number): void;
-    subscribeOnChangeState(func: () => any): void;
-    unsubscribeFromChangeState(func: () => any): void;
+    subscribeOnChangeState(func: () => void): void;
+    unsubscribeFromChangeState(func: () => void): void;
     private refreshNewFeatures;
 }
