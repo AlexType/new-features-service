@@ -2,7 +2,7 @@
   "name": "new-features-service",
   "description": "Library of new features",
   "version": "0.0.1",
-  "main": "lib/new-features-service.min.js",
+  "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
   "scripts": {
     "dev": "webpack serve --config webpack.config.dev.js",

@@ -1,7 +1,7 @@
 {
   "name": "new-features-service",
   "description": "Library of new features",
-  "main": "lib/new-features-service.min.js",
+  "main": "lib/index.js",
   "authors": ["WM Team"],
   "license": "MIT",
   "homepage": "https://github.com/AlexType/new-features-service",

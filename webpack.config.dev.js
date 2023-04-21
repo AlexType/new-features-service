@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: './src/dev/index.ts',
-  output: { filename: 'new-features-service.js' },
+  output: { filename: 'index.js' },
   optimization: { minimize: false, },
   devServer: {
     open: true,

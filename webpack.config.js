@@ -6,7 +6,7 @@ module.exports = {
   mode: 'production',
   entry: './src/lib/index.ts',
   output: {
-    filename: 'new-features-service.min.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'lib'),
     library: 'NewFeatureLibrary',
 
