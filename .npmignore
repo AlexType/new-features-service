@@ -4,6 +4,7 @@
 # testing
 /tests
 /coverage
+/dist
 
 # docs
 /docs
@@ -15,7 +16,7 @@
 .env.test.local
 .env.production.local
 /.github
-/demo
+/dev
 .esdoc.json
 
 npm-debug.log*

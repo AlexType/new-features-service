@@ -4,12 +4,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
   entry: './src/lib/index.ts',
   output: {
     filename: 'new-features-service.min.js',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'lib'),
     library: 'NewFeatureLibrary',
+
     libraryTarget: 'umd',
     clean: true
   },
