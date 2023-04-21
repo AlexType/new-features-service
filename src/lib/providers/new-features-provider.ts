@@ -1,10 +1,11 @@
 export abstract class NewFeaturesProvider {
-  public abstract get newFeatures(): Promise<number>;
   private _subscriptions: (() => void)[] = [];
 
   public abstract markNewFeatureAsUsed(feature: number): Promise<void>;
   protected abstract stopListenPushes(): void;
   protected abstract startListenPushes(refreshFn: () => void): void;
+
+  public abstract getNewFeatures(): Promise<number>;
 
   public subscribeOnChangeState(func: () => void): void {
     if (this._subscriptions.find(f => f === func)) return;

@@ -9,7 +9,7 @@ enum Features {
 }
 
 class Provider extends NewFeaturesProvider {
-  public get newFeatures(): Promise<number> {
+  public getNewFeatures(): Promise<number> {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(5);

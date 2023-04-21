@@ -11,7 +11,7 @@ export class NewFeaturesService {
   private _compatibilityService: CompatibilityService;
   private readonly _subscriptions: (() => void)[] = [];
   private get _newFeatures$(): Promise<number> {
-    if (!this._promise$) this._promise$ = this._provider.newFeatures;
+    if (!this._promise$) this._promise$ = this._provider.getNewFeatures();
     return this._promise$;
   }
 
@@ -59,7 +59,7 @@ export class NewFeaturesService {
   }
 
   private refreshNewFeatures(): void {
-    this._promise$ = this._provider.newFeatures;
+    this._promise$ = this._provider.getNewFeatures();
     this._newFeatures$.then(() => { this._subscriptions.forEach(fn => fn()); });
   }
 }
