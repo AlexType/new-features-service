@@ -1,4 +1,4 @@
-import { NewFeaturesProvider } from './providers/new-features-provider';
+import { NewFeaturesProvider } from './new-features-provider';
 export declare class NewFeaturesService {
     private readonly _provider;
     get shownNewFeatures(): number;
@@ -6,6 +6,7 @@ export declare class NewFeaturesService {
     private _promise$;
     private _compatibilityService;
     private readonly _subscriptions;
+    private readonly _pushSubscriptions;
     private get _newFeatures$();
     constructor(_provider: NewFeaturesProvider, compatibilityGroups: number[]);
     availableFeatures(feature: number): Promise<number>;
@@ -16,4 +17,7 @@ export declare class NewFeaturesService {
     subscribeOnChangeState(fn: () => void): void;
     unsubscribeFromChangeState(fn: () => void): void;
     private refreshNewFeatures;
+    private subscribeListener;
+    private unsubscribeListener;
+    private update;
 }

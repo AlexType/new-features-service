@@ -2,11 +2,11 @@
   "name": "new-features-service",
   "description": "Library of new features",
   "version": "0.0.1",
-  "main": "lib/index.js",
-  "types": "lib/types/index.d.ts",
+  "main": "lib/new-features-service.js",
+  "types": "lib/types/new-features-service.d.ts",
   "scripts": {
     "build": "webpack && tsc",
-    "test": "jest --silent",
+    "test": "jest --watch",
     "coverage": "npm run test -- --coverage",
     "publish": "npm publish",
     "lint": "npx eslint ./ --fix"

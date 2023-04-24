@@ -4,11 +4,11 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.ts',
+  entry: './src/new-features-service.ts',
   devtool: 'source-map',
   resolve: { extensions: ['.ts', '.js', '.json'] },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [new TerserPlugin({ extractComments: false })]
   },
   output: {
