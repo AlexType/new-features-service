@@ -9,10 +9,7 @@
   "homepage": "https://github.com/AlexType/new-features-service",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "src"
+    "/*",
+    "!lib"
   ]
 }
