@@ -13,7 +13,7 @@ export declare class NewFeaturesService {
     isNewFeature(feature: number): Promise<boolean>;
     markNewFeatureAsUsed(feature: number): Promise<boolean>;
     hide(feature: number): void;
-    subscribeOnChangeState(func: () => void): void;
-    unsubscribeFromChangeState(func: () => void): void;
+    subscribeOnChangeState(fn: () => void): void;
+    unsubscribeFromChangeState(fn: () => void): void;
     private refreshNewFeatures;
 }

@@ -4,27 +4,29 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/lib/index.ts',
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'lib'),
-    library: 'NewFeatureLibrary',
-
-    libraryTarget: 'umd',
-    clean: true
-  },
+  entry: './src/index.ts',
+  devtool: 'source-map',
+  resolve: { extensions: ['.ts', '.js', '.json'] },
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin({ extractComments: false })]
+  },
+  output: {
+    clean: true,
+    filename: 'new-features-service.js',
+    path: path.resolve(__dirname, 'lib'),
+    library: {
+      name: 'NewFeatureLibrary',
+      type: 'umd',
+    }
   },
   module: {
     rules: [
       {
         test: /\.(m|j|t)s$/,
         exclude: /(node_modules|bower_components)/,
-        use: { loader: 'babel-loader' }
+        use: ['babel-loader']
       }
     ]
-  },
-  resolve: { extensions: ['.ts', '.js', '.json'] }
+  }
 };

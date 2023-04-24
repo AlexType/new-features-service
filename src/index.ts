@@ -45,17 +45,17 @@ export class NewFeaturesService {
     this._shownNewFeatures &= ~feature;
   }
 
-  public subscribeOnChangeState(func: () => void): void {
-    if (this._subscriptions.find(f => f === func)) return;
-    this._subscriptions.push(func);
-    if (this._subscriptions.length === 1) this._provider.subscribeOnChangeState(this.refreshNewFeatures);
+  public subscribeOnChangeState(fn: () => void): void {
+    if (this._subscriptions.find(f => f === fn)) return;
+    this._subscriptions.push(fn);
+    if (this._subscriptions.length === 1) this._provider.subscribeOnChangeState(this.refreshNewFeatures.bind(this));
   }
 
-  public unsubscribeFromChangeState(func: () => void): void {
-    const index = this._subscriptions.indexOf(func);
+  public unsubscribeFromChangeState(fn: () => void): void {
+    const index = this._subscriptions.indexOf(fn);
     if (index !== -1) return;
     this._subscriptions.splice(index, 1);
-    if (!this._subscriptions.length) this._provider.unsubscribeFromChangeState(this.refreshNewFeatures);
+    if (!this._subscriptions.length) this._provider.unsubscribeFromChangeState(this.refreshNewFeatures.bind(this));
   }
 
   private refreshNewFeatures(): void {

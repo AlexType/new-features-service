@@ -3,7 +3,7 @@
     "noImplicitAny": true,
     "outDir": "lib/types",
     "module": "esnext",
-    "target": "es5",
+    "target": "ES6",
     "allowJs": true,
     "sourceMap": true,
     "declaration": true,
@@ -12,6 +12,6 @@
     "lib": ["es2018", "dom"],
     "moduleResolution": "node"
   },
-  "include": ["src/lib"],
-  "exclude": ["src/lib/**/tests"]
+  "include": ["src"],
+  "exclude": ["src/**/tests"]
 }
