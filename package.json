@@ -1,9 +1,9 @@
 {
   "name": "new-features-service",
   "description": "Library of new features",
-  "version": "0.0.1",
-  "main": "lib/new-features-service.js",
-  "types": "lib/types/new-features-service.d.ts",
+  "version": "2.0.1",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
   "scripts": {
     "build": "webpack && tsc",
     "test": "jest --watch",

@@ -4,16 +4,16 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/new-features-service.ts',
+  entry: './src/lib/index.ts',
   devtool: 'source-map',
   resolve: { extensions: ['.ts', '.js', '.json'] },
   optimization: {
-    minimize: false,
+    minimize: true,
     minimizer: [new TerserPlugin({ extractComments: false })]
   },
   output: {
     clean: true,
-    filename: 'new-features-service.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'lib'),
     library: {
       name: 'NewFeatureLibrary',

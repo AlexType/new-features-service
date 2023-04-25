@@ -1,5 +1,5 @@
-import { NewFeaturesProvider } from './new-features-provider';
-import { CompatibilityService } from './compatibility-service';
+import { NewFeaturesProvider } from './provider/new-features-provider';
+import { CompatibilityService } from './service/compatibility-service';
 
 export class NewFeaturesService {
   public get shownNewFeatures(): number {

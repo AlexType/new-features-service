@@ -1,5 +1,5 @@
-import { NewFeaturesService } from '../new-features-service';
-import { NewFeaturesProvider } from '../new-features-provider';
+import { NewFeaturesService } from '../lib';
+import { NewFeaturesProvider } from '../lib/provider/new-features-provider';
 
 enum Features {
   BotsPage = 1 << 0,
