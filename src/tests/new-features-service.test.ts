@@ -1,5 +1,4 @@
-import { NewFeaturesService } from '../lib';
-import { NewFeaturesProvider } from '../lib/provider/new-features-provider';
+import { NewFeaturesService, NewFeaturesProvider } from '../lib';
 
 enum Features {
   BotsPage = 1 << 0,
@@ -16,7 +15,10 @@ const providerSpy = {
   startListenPushes: jest.fn()
 };
 
-class Provider implements NewFeaturesProvider {
+class Provider extends NewFeaturesProvider {
+  constructor() {
+    super();
+  }
   public getNewFeatures(): Promise<number> {
     providerSpy.getNewFeatures();
     return new Promise(resolve => { resolve(Features.BotsPage | Features.CommentPin | Features.EventsMultiPin); });
